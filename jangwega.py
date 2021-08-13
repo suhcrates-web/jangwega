@@ -28,10 +28,12 @@ if os.path.exists('data/after_jangwega.csv') :
         new_dics[line[corp_cd_in]] = {}
         for ii in range(len(line)):
             new_dics[line[corp_cd_in]][header[ii]] = line[ii]
+
+    last_one = [*new_dics][-1]
+    dics_list = dics_list[dics_list.index(last_one) + 1:]
 else:
     pass
-last_one = [* new_dics][-1]
-dics_list = dics_list[dics_list.index(last_one)+1:]
+
 
 url = 'http://www.38.co.kr/html/fund/index.htm?o=nw&page='  # 전체 리스트화면 url
 url2 = 'http://www.38.co.kr/chart/chart_page_new.php3?code='  # 개별 장외종가 url
